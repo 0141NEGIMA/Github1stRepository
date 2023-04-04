@@ -1,5 +1,7 @@
 package mancara;
 
+// 変更箇所
+
 public class Board{
 	public boolean isFirst; //先攻ならtrue
 	private int pocketNum = 4; //ポケットの数(両者の合計)
