@@ -94,7 +94,7 @@ public class Game {
 							break;
 						}
 						if(b.finished(!b.isFirst)) {
-							System.out.printf("You lose\n\n"); // ラスト1つをポケットに入れられて負け
+							System.out.printf("\nYou lose\n\n"); // ラスト1つをポケットに入れられて負け
 							return 0;
 						}
 					} catch(Exception e) {

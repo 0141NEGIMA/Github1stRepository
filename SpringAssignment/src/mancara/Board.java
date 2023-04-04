@@ -2,8 +2,8 @@ package mancara;
 
 public class Board{
 	public boolean isFirst; //先攻ならtrue
-	private int pocketNum = 4; //ポケットの数(両者の合計)
-	private int stoneNum = 4; //初期盤面の石の数
+	private int pocketNum = 12; //ポケットの数(両者の合計)
+	private int stoneNum = 3; //初期盤面の石の数
 	
 	private int[] stones = new int[pocketNum]; //各ポケットの石の数
 	
