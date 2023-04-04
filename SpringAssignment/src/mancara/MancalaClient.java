@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class MancalaClient {
 	public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class MancalaClient {
 				PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 				BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				// キーボード入力用のリーダーの作成
-				BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in))){
+				Scanner keyboard = new Scanner(System.in);){
 			
 			try {
 				
@@ -28,7 +29,7 @@ public class MancalaClient {
 				}
 			
 				// ゲーム
-				Game g = new Game(b, reader, writer);
+				Game g = new Game(b, reader, writer, keyboard);
 				if (g.play() == 1) {
 					System.out.printf("\n---EXIT---\n\n");
 				}

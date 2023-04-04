@@ -22,14 +22,14 @@ public class MancalaServer {
 					System.out.println("Connected");
 					BufferedReader reader = null;
 					PrintWriter writer = null;
-					Scanner scanner = null;
+					Scanner keyboard = null;
 					
 					try {
 						// InputStreamクラスをバイト→文字に変換し，BufferdReaderで効率化
 						reader = new BufferedReader(new InputStreamReader(sc.getInputStream()));
 						// 既存のOutputStreamから新しいPrintWriterを作成．第2引数のtrueはprintlnで自動フラッシュ
 						writer = new PrintWriter(sc.getOutputStream(), true);
-						scanner = new Scanner(System.in);
+						keyboard = new Scanner(System.in);
 						
 						// 先攻後攻を決め，通知する
 						Random rnd = new Random();
@@ -45,7 +45,7 @@ public class MancalaServer {
 						}
 						
 						// ゲーム
-						Game g = new Game(b, reader, writer);
+						Game g = new Game(b, reader, writer, keyboard);
 						if (g.play() == 1) {
 							System.out.printf("\n---EXIT---\n\n");
 						}
@@ -54,7 +54,6 @@ public class MancalaServer {
 						e3.printStackTrace();
 					} finally {
 						// リソースの解放
-						scanner.close();
 						if (reader != null)
 							reader.close();
 						if (writer != null)

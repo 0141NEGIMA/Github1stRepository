@@ -1,8 +1,8 @@
 package mancara;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 // 1つのゲームを進行する
 public class Game {
@@ -10,19 +10,20 @@ public class Game {
 	Board b;
 	BufferedReader reader;
 	PrintWriter writer;
-	BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+	Scanner keyboard = new Scanner(System.in);
 	boolean nowPlaying;
 	
-	public Game(Board board, BufferedReader r, PrintWriter w) {
+	public Game(Board board, BufferedReader r, PrintWriter w, Scanner k) {
 		b = board;
 		reader = r;
 		writer = w;
+		keyboard = k;
 		nowPlaying = b.isFirst;
 	}
 	
 	public int play() {
 		int result;
-		String nextMove;
+		String nextMove = null;
 		String line = null;
 		
 		System.out.printf("Game start\n\n");
@@ -33,7 +34,7 @@ public class Game {
 				System.out.print("Enter the next move: ");
 				while (true) {
 					try {
-						nextMove = keyboard.readLine(); // キーボードから手番を入力
+						nextMove = keyboard.next(); // キーボードから手番を入力
 						
 						if (nextMove.equals("EXIT")) {
 							writer.println(nextMove);
