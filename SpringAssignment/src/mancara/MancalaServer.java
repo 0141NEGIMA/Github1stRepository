@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.util.Random;
 import java.util.Scanner;
 
+// サーバ
 public class MancalaServer {
 
 	public static void main(String[] args) {
